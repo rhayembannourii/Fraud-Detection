@@ -18,7 +18,7 @@ app = FastAPI(
 BASE_DIR = Path(__file__).resolve(strict=True).parent
 
 # Load the model
-with open(f"fraud_detection_model-0.0.1.pkl", "rb") as file:
+with open(f"{BASE_DIR}/fraud_detection_model-0.0.1.pkl", "rb") as file:
     model = joblib.load(file)
 
 
