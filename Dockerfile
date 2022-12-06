@@ -1,7 +1,9 @@
 FROM tiangolo/uvicorn-gunicorn:python3.9
 
-COPY ./requirements.txt /app/requirements.txt
+WORKDIR /app
+COPY ./requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+#RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
-
-COPY ./app /app/app
+COPY . .
+ENTRYPOINT ["streamlit", "run", "./fraud_detection_app.py", "--server.port=8501", "--server.address=0.0.0.0"]

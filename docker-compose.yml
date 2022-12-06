@@ -4,7 +4,6 @@ services:
     build: .
     container_name: fraud-detection
     ports:
-      - "9000:9000"
-      - "5005:5005"
+      - "8501:8501"
     volumes:
       - "./app:/app"

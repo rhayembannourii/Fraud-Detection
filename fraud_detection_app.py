@@ -5,7 +5,7 @@ import streamlit as st
 # App title
 st.title("Credit Card Transaction Fraud Detection App")
 
-#some image
+# some image
 st.image("img/credit_card_fraud.jpg")
 
 # Description
@@ -23,7 +23,7 @@ st.write(
 
     The notebook, model, documentation(FastApi script, Streamlit script) are available on [Github](https://github.com/Luissalazarsalinas/Fraud-Detection)
 
-    **Made by Luis Fernando Salazar S.**
+    **Rhayem Bannouri**
 
     """
 )
@@ -43,6 +43,7 @@ def type_transaction(content):
         content = 4
     return content
 
+
 ######################################### Input elements #############################################################
 st.sidebar.header("Input user and transaction information")
 
@@ -54,20 +55,21 @@ receiver_name = st.sidebar.text_input(" Receiver Name ID")
 type_lebels = ("PAYMENT", "TRANSFER", "CASH_OUT", "DEBIT", "CASH_IN")
 type = st.sidebar.selectbox(" Type of transaction", type_lebels)
 
-step = st.sidebar.slider("Number of Hours it took the Transaction to complete:", min_value = 0, max_value = 744)
+step = st.sidebar.slider("Number of Hours it took the Transaction to complete:", min_value=0, max_value=744)
 
-amount = st.sidebar.number_input("Amount in $",min_value=0, max_value=110000)
-oldbalanceorg = st.sidebar.number_input("""Sender Balance Before Transaction was made""",min_value=0, max_value=110000)
-newbalanceorg = st.sidebar.number_input("""Sender Balance After Transaction was made""",min_value=0, max_value=110000)
-oldbalancedest = st.sidebar.number_input("""Recipient Balance Before Transaction was made""",min_value=0, max_value=110000)
-newbalancedest = st.sidebar.number_input("""Recipient Balance After Transaction was made""",min_value=0, max_value=110000)
+amount = st.sidebar.number_input("Amount in $", min_value=0, max_value=110000)
+oldbalanceorg = st.sidebar.number_input("""Sender Balance Before Transaction was made""", min_value=0, max_value=110000)
+newbalanceorg = st.sidebar.number_input("""Sender Balance After Transaction was made""", min_value=0, max_value=110000)
+oldbalancedest = st.sidebar.number_input("""Recipient Balance Before Transaction was made""", min_value=0,
+                                         max_value=110000)
+newbalancedest = st.sidebar.number_input("""Recipient Balance After Transaction was made""", min_value=0,
+                                         max_value=110000)
 ## flag 
 isflaggedfraud = "Non fraudulent"
 if amount >= 200000:
-  isflaggedfraud = "Fraudulent transaction"
+    isflaggedfraud = "Fraudulent transaction"
 else:
-  isflaggedfraud = "Non fraudulent"
-
+    isflaggedfraud = "Non fraudulent"
 
 result_button = st.button("Detect Result")
 
@@ -79,9 +81,9 @@ if result_button:
         "type": type_transaction(type),
         "amount": amount,
         "oldbalanceOrg": oldbalanceorg,
-        "newbalanceOrg": newbalanceorg,
+        "newbalanceOrig": newbalanceorg,
         "oldbalanceDest": oldbalancedest,
-        "newbalancedDest": newbalancedest
+        "newbalanceDest": newbalancedest
     }
 
     ## Transaction detail
@@ -111,14 +113,13 @@ if result_button:
     st.write("""## **Prediction**""")
 
     # inference from ml api
-    res = requests.post("https://fraud-detector-app.herokuapp.com/prediction", json= data)
+    # res = requests.post("https://heroku-host.com/prediction", json= data) ## for heroku
+    res = requests.post("http://localhost:8000/prediction", json=data)  ## local
     json_str = json.dumps(res.json())
     respon = json.loads(json_str)
 
-    if sender_name=='' or receiver_name == '':
+    if sender_name == '' or receiver_name == '':
         st.write("Error! Please input Transaction ID or Names of Sender and Receiver!")
     else:
-        st.write(f"""### The **'{type}'** transaction that took place between {sender_name} and {receiver_name} {respon[0]}.""")
-
-
-
+        st.write(
+            f"""### The **'{type}'** transaction that took place between {sender_name} and {receiver_name} {respon[0]}.""")
