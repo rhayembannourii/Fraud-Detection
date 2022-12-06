@@ -2,8 +2,8 @@ FROM tiangolo/uvicorn-gunicorn:python3.9
 
 WORKDIR /app
 RUN pip install --upgrade pip
-COPY streamlit_requirements.txt streamlit_requirements.txt
-RUN pip install -r streamlit_requirements.txt
+COPY ./streamlit_requirements.txt /app/streamlit_requirements.txt
+RUN pip install -r /app/streamlit_requirements.txt
 
 #RUN pip install --no-cache-dir --upgrade -r /backend/requirements.txt
 COPY . /app
