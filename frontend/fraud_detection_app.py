@@ -1,14 +1,14 @@
 import json
 import requests
 import streamlit as st
-
+from pathlib import Path
 
 
 # App title
 st.title("Credit Card Transaction Fraud Detection App")
-
+BASE_DIR = Path(__file__).resolve(strict=True).parent
 # some image
-st.image("img/credit_card_fraud.jpg")
+st.image(f"{BASE_DIR}/img/credit_card_fraud.jpg")
 
 # Description
 st.write(
