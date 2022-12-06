@@ -6,7 +6,7 @@ from fastapi import FastAPI, status
 import uvicorn
 from pydantic import BaseModel
 
-## app
+## backend
 app = FastAPI(
     title="Machine Learning - Fraud detector api",
     description=" Ml api to detect if a credit card transaction is fraudulent or no",
@@ -66,4 +66,4 @@ def inference(data: DataValidation):
 
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", host='127.0.0.1', port=8000, reload=True)
+    uvicorn.run("main:backend", host='127.0.0.1', port=8000, reload=True)
