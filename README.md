@@ -17,7 +17,7 @@ Therefore, in this project we develop a Streamlit App that utilizes a Machine Le
 
 The App can be viewed through this [link](https://luissalazarsalinas-fraud-detection-fraud-detection-app-zvrvsp.streamlitapp.com/)
 
-[NoteBook]()
+[NoteBook](https://github.com/rhayembannourii/Fraud-Detection/blob/master/NoteBook/Fraud_detection.ipynb)
 
 ## Data Preparation
 
@@ -27,8 +27,6 @@ Credit card transaction is a syntetic financial dataset created using a simulato
  - Clean the data: removed duplicate values, missing values, unnecessary and leakage variables
  - Transform no-numerical variables to numerical variables
  - Split the data into train, validation and test sets
-
-Source dataset: [Credit card data](https://www.kaggle.com/datasets/ealaxi/paysim1)
 
 ## Modelling 
 Machine Learning Algorithms that were tested:
