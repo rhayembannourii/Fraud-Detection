@@ -116,7 +116,7 @@ if result_button:
 
     # inference from ml api
     # res = requests.post("https://heroku-host.com/prediction", json= data) ## for heroku
-    res = requests.post("http://0.0.0.0:8000/prediction", json=data)  ## local
+    res = requests.post("http://backend:8000/prediction", json=data)  ## local
     json_str = json.dumps(res.json())
     respon = json.loads(json_str)
 
