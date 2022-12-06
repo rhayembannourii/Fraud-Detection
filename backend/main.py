@@ -64,6 +64,5 @@ def inference(data: DataValidation):
     else:
         return {f"is not potentially fraudulent with a probability of {prob_nofraud} percent"}
 
-
-if __name__ == '__main__':
-    uvicorn.run("main:app", host='127.0.0.1', port=8000, reload=True)
+# if __name__ == '__main__':
+#     uvicorn.run("main:app")
