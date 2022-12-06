@@ -17,7 +17,7 @@ Therefore, in this project we develop a Streamlit App that utilizes a Machine Le
 
 The App can be viewed through this [link](https://rhayembannourii-fraud-detect-frontendfraud-detection-app-ot1cc9.streamlit.app/)
 
-[NoteBook](https://github.com/rhayembannourii/Fraud-Detection/blob/master/NoteBook/Fraud_detection.ipynb)
+[NoteBook](https://github.com/rhayembannourii/Fraud-Detection/blob/master/NoteBook/CreditCard_Fraud_Detection.ipynb)
 
 ## Data Preparation
 
@@ -46,8 +46,8 @@ Final model performance with the test set:
  - F1-Score: 0.89
  - ROC-AUC: 0.91
  
- Feature importance
- ![image](https://github.com/Luissalazarsalinas/Fraud-Detection/blob/master/img/Feature_importance.png)
+ Feature importance 
+ ![image](https://github.com/rhayembannourii/Fraud-Detection/blob/master/frontend/img/Feature_importance.png)
 The variables that contribute most to the XGBoost final model were:
  - Type of transferent
  - New balance orig
